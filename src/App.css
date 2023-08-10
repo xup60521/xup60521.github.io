@@ -1,0 +1,158 @@
+:root {
+  --plain-background-color: #f6f5ef;
+  --text-color: #000000;
+  --active-color: rgb(17, 84, 18);
+  --content-background-color: #c1c1c1;
+  --nav-background-color: black;
+}
+
+div#root {
+  display: flex;
+}
+
+div.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--plain-background-color);
+  color: black;
+  overflow-y: hidden;
+}
+
+div.top-bar {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  width: max-content;
+  background-color: transparent;
+  text-align: right;
+  z-index: 100;
+  font-size: large;
+}
+
+button.top-bar {
+  padding: 0.3rem;
+}
+
+button.menu {
+  background-color: transparent;
+  color: var(--text-color);
+  box-sizing: border-box;
+  background-color: transparent;
+  margin: 3rem;
+  margin-left: 0rem;
+}
+
+button.search {
+  background-color: transparent;
+  color: var(--text-color);
+  box-sizing: border-box;
+  background-color: transparent;
+  margin: 0rem;
+  margin-left: 0rem;
+}
+
+button.menu.showMenu  {
+  color: white;
+  transition: all 0.1s ease;
+}
+
+button.search.showMenu  {
+  color: white;
+  transition: all 0.1s ease;
+}
+
+button.search {
+  background-color: transparent;
+  color: var(--text-color);
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+aside {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--nav-background-color);
+  position:absolute;
+  top: -100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+aside > div {
+  animation: fadeIn 0.2s linear ;
+}
+
+aside.showMenu {
+  top: 0vh;
+  transition: all 0.4s ease;
+}
+
+aside > div.nav {
+  width: 40rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+aside > div > a {
+  color: white;
+  font-size: x-large;
+  margin: 0.5rem;
+}
+
+/*--------------------------------------------*/
+
+main {
+  background-color: var(--plain-background-color);
+  width: 100vw;
+  height: 100vh;  
+  overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+}
+
+div.content {
+  animation: fadeIn 0.5s;
+  width: 65vw;
+  margin-top: 5rem;
+}
+
+div.content > * {
+  animation: fadeIn 0.2s;
+}
+
+div.blog {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
+
+div.blog > div.item {
+  width: 45vw;
+  border-bottom: 0.1rem solid var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+div.blog > div.item > p > a {
+  color: var(--text-color);
+  font-size: larger;
+}
+
+div.blog > div.item > p > a:hover {
+  color: var(--active-color);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
