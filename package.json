@@ -1,15 +1,19 @@
 {
   "name": "personal-web-page-with-vite",
+  "homepage": ".",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "gh-pages-cli": "^0.2.0",
     "html-react-parser": "^4.2.1",
     "js-base64": "^3.7.5",
     "react": "^18.2.0",
