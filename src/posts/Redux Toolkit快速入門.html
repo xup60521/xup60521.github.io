@@ -1,0 +1,105 @@
+<!-- directives:[] -->
+            <div id="content"><h2 id="安裝">安裝</h2>
+<p>在專案資料夾中安裝套件</p>
+<pre id="code"><code>npm install @reduxjs/toolkit 
+npm install react-redux </code></pre>
+<h2 id="initialize">Initialize</h2>
+<p>在<code>/src/</code>中新增<code>redux</code>資料夾，並在<code>/src/redux/</code>新增<code>datastore.js</code>與<code>store.js</code></p>
+<p>在datastore.js裡，套用模板</p>
+<pre id="code"><code>import { createSlice } from "@reduxjs/toolkit";
+
+export const dataSlice = createSlice({
+    name: "yourName", // name隨意
+    initialState: {
+        // 初始狀態，左邊list, setting名稱隨意
+        list: [],
+        setting: [],
+        count: 0,
+    },
+    reducers: {
+        // 改變狀態用的函數，一樣隨意
+        // 雖然這裡是Object，但之後會自動變成類函數
+        addcount: (state, action) =&gt; {
+            state.count = state.count + action.payload
+             // state是原有的狀態，這裡取前面的list修改
+             // 以此類推，要改setting就用state.setting
+            //action是外面傳進來的東西
+            //記得用payload把它讀取出來
+        }
+    }
+})
+
+// 將additem匯出，之後才能在其他檔案裡面使用
+// 後面會談到要如何使用(與一般function有些差別)
+export const { addcount } = dataSlice.actions; 
+// default匯出，之後能用任何名子匯入
+export default dataSlice.reducer;</code></pre>
+<p>接著切到另一個檔案<code>store.js</code>套用模板</p>
+<pre id="code"><code>import { configureStore } from "@reduxjs/toolkit";
+// 因為剛剛是default匯出，現在用任何名子匯入都行
+import dataReducer from "./datastore"
+
+// 這裡還是default匯出
+export default configureStore({
+
+&amp;nbsp; &amp;nbsp; reducer: {
+        // 這裡要用上面name欄位取的名子
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; yourName: dataReducer
+&amp;nbsp; &amp;nbsp; }
+});</code></pre>
+<h2 id="使用">使用</h2>
+<p>到最上層的檔案，預設的話應該是<code>index.js</code>，並加入<code>Provider</code><br />
+程式碼應該長這樣子</p>
+<pre id="code"><code>import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App.jsx';
+import { Provider } from 'react-redux';
+// store.js的default匯出，以任何名子都能匯入
+import store from './redux/store';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+&amp;nbsp; &lt;React.StrictMode&gt;
+&amp;nbsp; // 匯入store
+&amp;nbsp; &amp;nbsp; &lt;Provider store={store}&gt;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;App /&gt;
+&amp;nbsp; &amp;nbsp; &lt;/Provider&gt;
+&amp;nbsp; &lt;/React.StrictMode&gt;
+);</code></pre>
+<p>接著下游檔案都能使用redux了，雖然不需要一層層傳遞state，不過js檔案中需要一些小步驟才能正常使用。</p>
+<p>以<code>App.jsx</code>為例，原本程式碼為</p>
+<pre id="code"><code>const App = () =&gt; {
+    return (
+        &lt;&gt;
+            &lt;p&gt;`count: 0`&lt;/p&gt;
+            &lt;button&gt;add 1&lt;/button&gt;
+        &lt;/&gt;
+    )
+}
+export default App;</code></pre>
+<p>要取用檔案，需要用到另外兩個hooks，分別為<code>useSelector</code>、<code>useDispatch</code><br />
+以下範例</p>
+<pre id="code"><code>import { useDispatch, useSelector } from "react-redux";
+import { addcount } from "./redux/datastore";
+
+const App = () =&gt; {
+
+    const reduxdata = useSelector((state)=&gt; state.yourName.count);
+    const dispatch = useDispatch();
+    const add1 = () =&gt; {
+        dispatch(
+            // addcount要從上面import匯入
+            addcount(1);
+            )
+        };
+    return (
+        &lt;&gt;
+            &lt;p&gt;`count: ${reduxdata}`&lt;/p&gt;
+            &lt;button onClick={add1}&gt;add 1&lt;/button&gt;
+        &lt;/&gt;
+    )
+};
+export default App;</code></pre>
+<p>無需透過一連串的state繼承，就能在不同檔案間共享數據了</p></div>

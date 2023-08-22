@@ -6,6 +6,11 @@
   --nav-background-color: black;
 }
 
+pre#code {
+  background-color: #00000015;
+  padding: 1.5rem;
+}
+
 div#root {
   display: flex;
 }
@@ -51,28 +56,21 @@ button.search {
   margin-left: 0rem;
 }
 
-button.menu.showMenu  {
+button.menu.showMenu {
   color: white;
   transition: all 0.1s ease;
 }
 
-button.search.showMenu  {
+button.search.showMenu {
   color: white;
   transition: all 0.1s ease;
-}
-
-button.search {
-  background-color: transparent;
-  color: var(--text-color);
-  box-sizing: border-box;
-  background-color: transparent;
 }
 
 aside {
   height: 100vh;
   width: 100vw;
   background-color: var(--nav-background-color);
-  position:absolute;
+  position: absolute;
   top: -100vh;
   z-index: 10;
   display: flex;
@@ -81,8 +79,8 @@ aside {
   transition: all 0.2s ease;
 }
 
-aside > div {
-  animation: fadeIn 0.2s linear ;
+aside>div {
+  animation: fadeIn 0.2s linear;
 }
 
 aside.showMenu {
@@ -90,7 +88,7 @@ aside.showMenu {
   transition: all 0.4s ease;
 }
 
-aside > div.nav {
+aside>div.nav {
   width: 40rem;
   padding: 1rem;
   display: flex;
@@ -98,10 +96,34 @@ aside > div.nav {
   flex-wrap: wrap;
 }
 
-aside > div > a {
+aside>div>a {
   color: white;
   font-size: x-large;
   margin: 0.5rem;
+}
+
+div.searchbox {
+  padding: 0rem;
+  height: 2rem;
+  width: 10rem;
+  display: flex;
+  align-items: center;
+}
+
+div.searchbox>button {
+  background-color: transparent;
+}
+
+div.searchbox>input {
+  border: none;
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  width: 10rem;
+}
+
+div.searchbox>input:active {
+  border: nonee;
 }
 
 /*--------------------------------------------*/
@@ -109,7 +131,7 @@ aside > div > a {
 main {
   background-color: var(--plain-background-color);
   width: 100vw;
-  height: 100vh;  
+  height: 100vh;
   overflow-y: scroll;
   display: flex;
   justify-content: center;
@@ -121,7 +143,7 @@ div.content {
   margin-top: 5rem;
 }
 
-div.content > * {
+div.content>* {
   animation: fadeIn 0.2s;
 }
 
@@ -133,18 +155,18 @@ div.blog {
   align-items: center;
 }
 
-div.blog > div.item {
+div.blog>div.item {
   width: 45vw;
   border-bottom: 0.1rem solid var(--text-color);
   margin-bottom: 1.5rem;
 }
 
-div.blog > div.item > p > a {
+div.blog>div.item>p>a {
   color: var(--text-color);
   font-size: larger;
 }
 
-div.blog > div.item > p > a:hover {
+div.blog>div.item>p>a:hover {
   color: var(--active-color);
 }
 
@@ -152,6 +174,7 @@ div.blog > div.item > p > a:hover {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

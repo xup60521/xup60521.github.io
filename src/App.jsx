@@ -25,6 +25,7 @@ const App = () => {
     }
   }
   const [searchMode, setSearchMode] = useState(false);
+  const [searchContent, setSearchContent] = useState("");
 
   return (
     <HashRouter>
@@ -34,7 +35,7 @@ const App = () => {
           <button className={"menu top-bar "+(showMenu==true ? "showMenu" : "")} onClick={toggleShowMenu}>{(showMenu ? <AiOutlineClose /> : <AiOutlineMenu />)}</button>
         </div>
         <aside className={(showMenu==true ? "showMenu" : "")}>
-          {(searchMode==true ? <SearchBox  setShowMenu={setShowMenu} /> : <div className="nav">
+          {(searchMode==true ? <SearchBox  setShowMenu={setShowMenu} setSearchContent={setSearchContent} /> : <div className="nav">
             <NavLink to="/" onClick={toggleShowMenu} >HOME</NavLink>
             <NavLink to="/blogs/" onClick={toggleShowMenu} >BLOGS</NavLink>
             <NavLink to="/mywork" onClick={toggleShowMenu} >MY WORKS</NavLink>
