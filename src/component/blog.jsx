@@ -1,7 +1,6 @@
-import blogs from "./../posts/db.json"
 import { NavLink } from "react-router-dom"
 
-const Blog = () => {
+const Blog = ({blogs}) => {
 
 
     return (

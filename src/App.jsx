@@ -1,8 +1,7 @@
-import blogs from "./posts/db.json"
 import './App.css'
 import { HashRouter, NavLink, Route, Routes } from "react-router-dom"
 import {AiOutlineMenu, AiOutlineClose, AiOutlineSearch} from "react-icons/ai"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Home from "./component/home"
 import Blog from "./component/blog"
 import Contact from "./component/contact"
@@ -12,6 +11,17 @@ import HTMLReactParser from "html-react-parser";
 import { Base64 } from "js-base64"
 
 const App = () => {
+
+  const [blogs, setblogs] = useState({"posts": []});
+  
+  const fetchdata = () => {
+    fetch("https://raw.githubusercontent.com/xup60521/xup60521.github.io/main/src/posts/db.json").then((res)=>res.json()).then((res)=>{setblogs(res)});
+  }
+  
+  useEffect(()=>{
+    fetchdata();
+  },[])
+
 
   const [showMenu, setShowMenu] = useState(false);
   const toggleShowMenu = () => {
@@ -47,7 +57,7 @@ const App = () => {
           <div className="content">
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route exact path="/blogs/" element={<Blog />} />
+              <Route exact path="/blogs/" element={<Blog blogs={blogs} />} />
               <Route exact path="/contact/" element={<Contact />} />
               <Route exact path="/mywork/" element={<MyWork />} />
               {blogs.posts.map((d)=>{
