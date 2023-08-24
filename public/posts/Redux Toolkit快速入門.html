@@ -44,10 +44,10 @@ import dataReducer from "./datastore"
 // 這裡還是default匯出
 export default configureStore({
 
-&nbsp; &nbsp; reducer: {
+&amp;nbsp; &amp;nbsp; reducer: {
         // 這裡要用上面name欄位取的名子
-&nbsp; &nbsp; &nbsp; &nbsp; yourName: dataReducer
-&nbsp; &nbsp; }
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; yourName: dataReducer
+&amp;nbsp; &amp;nbsp; }
 });</code></pre>
 <h2 id="使用">使用</h2>
 <p>到最上層的檔案，預設的話應該是<code>index.js</code>，並加入<code>Provider</code><br />
@@ -63,12 +63,12 @@ import store from './redux/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-&nbsp; &lt;React.StrictMode&gt;
-&nbsp; // 匯入store
-&nbsp; &nbsp; &lt;Provider store={store}&gt;
-&nbsp; &nbsp; &nbsp; &lt;App /&gt;
-&nbsp; &nbsp; &lt;/Provider&gt;
-&nbsp; &lt;/React.StrictMode&gt;
+&amp;nbsp; &lt;React.StrictMode&gt;
+&amp;nbsp; // 匯入store
+&amp;nbsp; &amp;nbsp; &lt;Provider store={store}&gt;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;App /&gt;
+&amp;nbsp; &amp;nbsp; &lt;/Provider&gt;
+&amp;nbsp; &lt;/React.StrictMode&gt;
 );</code></pre>
 <p>接著下游檔案都能使用redux了，雖然不需要一層層傳遞state，不過js檔案中需要一些小步驟才能正常使用。</p>
 <p>以<code>App.jsx</code>為例，原本程式碼為</p>

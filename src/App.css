@@ -9,6 +9,7 @@
 pre#code {
   background-color: #00000015;
   padding: 1.5rem;
+  overflow-x: scroll;
 }
 
 div#root {
@@ -133,14 +134,16 @@ main {
   width: 100vw;
   height: 100vh;
   overflow-y: scroll;
-  display: flex;
-  justify-content: center;
 }
 
 div.content {
   animation: fadeIn 0.5s;
   width: 65vw;
-  margin-top: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  height: max-content;
+  overflow-x: scroll;
+  margin: auto;
 }
 
 div.content>* {
@@ -161,6 +164,31 @@ div.blog>div.item {
   margin-bottom: 1.5rem;
 }
 
+div.blog > div.item > span {
+  font-size: small;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+div.blog > div.item > span > a#date {
+  color: var(--text-color);
+  margin-right: 0.1rem;
+  width: 4.1rem;
+  font-weight: 500;
+}
+
+div.blog > div.item > span > a#tag {
+  color: var(--plain-background-color);
+  margin-left: 0.3rem;
+  background-color: grey;
+  padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  border-radius: 0.2rem;
+  font-size: smaller;
+}
+
+
 div.blog>div.item>p>a {
   color: var(--text-color);
   font-size: larger;
@@ -170,6 +198,24 @@ div.blog>div.item>p>a:hover {
   color: var(--active-color);
 }
 
+span#blogpage {
+  display: flex;
+  align-items: center;
+}
+
+span#blogpage> a {
+  font-size: normal;
+  color:var(--plain-background-color);
+  background-color: grey;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  margin-right: 0.3rem;
+}
+
+img {
+  max-width: 100%;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -177,5 +223,11 @@ div.blog>div.item>p>a:hover {
 
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 450px) {
+  div.content {
+    width: 90vw;
   }
 }

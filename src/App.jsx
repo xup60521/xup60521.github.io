@@ -1,26 +1,16 @@
 import './App.css'
 import { HashRouter, NavLink, Route, Routes } from "react-router-dom"
 import {AiOutlineMenu, AiOutlineClose, AiOutlineSearch} from "react-icons/ai"
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, useRef, useState } from "react"
 import Home from "./component/home"
-import Blog from "./component/blog"
+import BlogRoot from './component/blog/blogroot'
 import Contact from "./component/contact"
 import SearchBox from "./component/searchbox"
 import MyWork from "./component/myWork"
-import HTMLReactParser from "html-react-parser";
-import { Base64 } from "js-base64"
 
 const App = () => {
 
-  const [blogs, setblogs] = useState({"posts": []});
   
-  const fetchdata = () => {
-    fetch("https://raw.githubusercontent.com/xup60521/xup60521.github.io/main/src/posts/db.json").then((res)=>res.json()).then((res)=>{setblogs(res)});
-  }
-  
-  useEffect(()=>{
-    fetchdata();
-  },[])
 
 
   const [showMenu, setShowMenu] = useState(false);
@@ -53,16 +43,14 @@ const App = () => {
           </div>)}
           
         </aside>
-        <main class="main">
+        <main className="main">
           <div className="content">
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route exact path="/blogs/" element={<Blog blogs={blogs} />} />
+              <Route exact path="/blogs//*" element={<BlogRoot />} />
               <Route exact path="/contact/" element={<Contact />} />
               <Route exact path="/mywork/" element={<MyWork />} />
-              {blogs.posts.map((d)=>{
-                return <Route exact path={`/blogs/${d.title}`} element={HTMLReactParser(Base64.decode(d.Base64Content))} />
-              })}
+              
             </Routes>
           </div>
         </main>
