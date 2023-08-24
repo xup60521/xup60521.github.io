@@ -9,7 +9,9 @@
 pre#code {
   background-color: #00000015;
   padding: 1.5rem;
+  
   overflow-x: scroll;
+  padding-right: 1.5rem;
 }
 
 div#root {
@@ -33,6 +35,7 @@ div.top-bar {
   text-align: right;
   z-index: 100;
   font-size: large;
+  height: 5rem;
 }
 
 button.top-bar {
@@ -172,22 +175,25 @@ div.blog > div.item > span {
   width: 100%;
 }
 
-div.blog > div.item > span > a#date {
+a#date {
   color: var(--text-color);
   margin-right: 0.1rem;
   width: 4.1rem;
   font-weight: 500;
 }
 
-div.blog > div.item > span > a#tag {
+a#tag {
   color: var(--plain-background-color);
-  margin-left: 0.3rem;
+  margin: 0.1rem;
   background-color: grey;
   padding: 0.1rem 0.3rem 0.1rem 0.3rem;
   border-radius: 0.2rem;
   font-size: smaller;
 }
 
+div.blog>div.item>p {
+  margin: 0.3rem 0 0.3rem 0;
+}
 
 div.blog>div.item>p>a {
   color: var(--text-color);
@@ -212,6 +218,45 @@ span#blogpage> a {
   margin-right: 0.3rem;
 }
 
+span#tagtab {
+  width: 12vw;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  padding-top: 0.5rem;
+  border-top: 0.1rem solid grey;
+}
+
+span#tagtab > a#tag {
+  margin: 0.1rem;
+  border: 0.1rem solid grey;
+}
+
+span#tagtab > a#tag.active {
+  background-color: var(--plain-background-color);
+  border: 0.1rem solid grey;
+  color: var(--text-color);
+}
+
+span#toptagtab {
+  display:none;
+}
+
+a > button#resettag {
+  padding: 0.15rem 0.3rem 0.15rem 0.3rem;
+  background-color: var(--plain-background-color);
+  color: var(--text-color);
+  border: 0.1rem solid grey;
+  margin-bottom: 1.3rem;
+  transition: all 0.1s ease;
+}
+
+a > button#resettag:hover {
+  background-color: grey;
+  color: var(--plain-background-color);
+  transition: all 0.1s ease;
+}
+
 img {
   max-width: 100%;
 }
@@ -228,6 +273,27 @@ img {
 
 @media (max-width: 450px) {
   div.content {
+    width: 90vw;
+  }
+  span#tagtab {
+    display: none;
+  }
+  span#toptagtab {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.3rem;
+  }
+  span#toptagtab > a#tag {
+    margin: 0.1rem;
+    border: 0.1rem solid grey;
+    transition: all 0.1s ease;
+  }
+  span#toptagtab > a#tag.active {
+    background-color: var(--plain-background-color);
+    color: var(--text-color);
+    transition: all 0.1s ease;
+  }
+  div.blog>div.item {
     width: 90vw;
   }
 }

@@ -1,11 +1,16 @@
 import { NavLink } from "react-router-dom"
 
-const Blog = ({blogs}) => {
+const Blog = ({blogs, tagstate}) => {
 
 
     return (
         <div className="blog">
             <h2>BLOGS</h2>
+            <span id="toptagtab">
+                {tagstate.map((d)=>{
+                    return <NavLink id="tag" to={`/blogs/tag="${d}"`}>{d}</NavLink>
+                })}
+            </span>
             {blogs.posts.map((d)=>{
                 return (
                     <div className="item">

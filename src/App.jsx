@@ -44,7 +44,7 @@ const App = () => {
           
         </aside>
         <main className="main">
-          <div className="content">
+          
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path="/blogs//*" element={<BlogRoot />} />
@@ -52,7 +52,7 @@ const App = () => {
               <Route exact path="/mywork/" element={<MyWork />} />
               
             </Routes>
-          </div>
+          
         </main>
       </div>  
     </HashRouter>
