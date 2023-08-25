@@ -7,6 +7,7 @@ import BlogRoot from './component/blog/blogroot'
 import Contact from "./component/contact"
 import SearchBox from "./component/searchbox"
 import MyWork from "./component/myWork"
+import { Helmet } from 'react-helmet'
 
 const App = () => {
 
@@ -28,35 +29,39 @@ const App = () => {
   const [searchContent, setSearchContent] = useState("");
 
   return (
-    <HashRouter>
-      <div className="App">
-        <div className="top-bar">
-          <button className={"search top-bar "+(showMenu==true ? "showMenu " : " ")} style={{display: (showMenu==true & searchMode==true ? "none" : "")}} onClick={()=>{(showMenu==false ? toggleShowMenu() : ""); setSearchMode(true)}} ><AiOutlineSearch /></button>
-          <button className={"menu top-bar "+(showMenu==true ? "showMenu" : "")} onClick={toggleShowMenu}>{(showMenu ? <AiOutlineClose /> : <AiOutlineMenu />)}</button>
-        </div>
-        <aside className={(showMenu==true ? "showMenu" : "")}>
-          {(searchMode==true ? <SearchBox  setShowMenu={setShowMenu} setSearchContent={setSearchContent} /> : <div className="nav">
-            <NavLink to="/" onClick={toggleShowMenu} >HOME</NavLink>
-            <NavLink to="/blogs/" onClick={toggleShowMenu} >BLOGS</NavLink>
-            <NavLink to="/mywork" onClick={toggleShowMenu} >MY WORKS</NavLink>
-            <NavLink to="/contact" onClick={toggleShowMenu} >CONTACT</NavLink>
-          </div>)}
-          
-        </aside>
-        <main className="main">
-          
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/blogs//*" element={<BlogRoot />} />
-              <Route exact path="/contact/" element={<Contact />} />
-              <Route exact path="/mywork/" element={<MyWork />} />
-              
-            </Routes>
-          
-        </main>
-      </div>  
-    </HashRouter>
-      
+    <>
+      <Helmet>
+        <title>Zup</title>
+      </Helmet>
+      <HashRouter>
+        <div className="App">
+          <div className="top-bar">
+            <button className={"search top-bar "+(showMenu==true ? "showMenu " : " ")} style={{display: (showMenu==true & searchMode==true ? "none" : "")}} onClick={()=>{(showMenu==false ? toggleShowMenu() : ""); setSearchMode(true)}} ><AiOutlineSearch /></button>
+            <button className={"menu top-bar "+(showMenu==true ? "showMenu" : "")} onClick={toggleShowMenu}>{(showMenu ? <AiOutlineClose /> : <AiOutlineMenu />)}</button>
+          </div>
+          <aside className={(showMenu==true ? "showMenu" : "")}>
+            {(searchMode==true ? <SearchBox  setShowMenu={setShowMenu} setSearchContent={setSearchContent} /> : <div className="nav">
+              <NavLink to="/" onClick={toggleShowMenu} >HOME</NavLink>
+              <NavLink to="/blogs/" onClick={toggleShowMenu} >BLOGS</NavLink>
+              <NavLink to="/mywork" onClick={toggleShowMenu} >MY WORKS</NavLink>
+              <NavLink to="/contact" onClick={toggleShowMenu} >CONTACT</NavLink>
+            </div>)}
+            
+          </aside>
+          <main className="main">
+            
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/blogs//*" element={<BlogRoot />} />
+                <Route exact path="/contact/" element={<Contact />} />
+                <Route exact path="/mywork/" element={<MyWork />} />
+                
+              </Routes>
+            
+          </main>
+        </div>  
+      </HashRouter>
+    </>
     
     
     

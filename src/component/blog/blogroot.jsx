@@ -5,6 +5,7 @@ import Tag from "./tag";
 import BlogPage from "./blogpage";
 import Draggable ,{ DraggableCore } from "react-draggable";
 import { NavLink } from "react-router-dom";
+import {IoIosMenu} from "react-icons/io"
 
 const BlogRoot = () => {
 
@@ -30,13 +31,18 @@ const BlogRoot = () => {
     return (
         <>
             <Draggable
-                positionOffset={{x: "10%", y: "90%"}}
+                positionOffset={{x: "10%", y: "500%"}}
+                handle="strong"
             >
-                <span id="tagtab">
-                    {tagstate.map((d)=>{
-                        return <NavLink id="tag" to={`/blogs/tag="${d}"`}>{d}</NavLink>
-                    })}
-                </span>
+                <div className="dragtab">
+                    <strong><p><IoIosMenu preserveAspectRatio="none" /></p></strong>
+                    <span id="tagtab">
+                        {tagstate.map((d)=>{
+                            return <NavLink id="tag" to={`/blogs/tag="${d}"`}>{d}</NavLink>
+                        })}
+                    </span>
+                </div>
+                
             </Draggable>
         <div className="content">
             <Routes>

@@ -218,6 +218,18 @@ span#blogpage> a {
   margin-right: 0.3rem;
 }
 
+div.dragtab {
+  position: absolute;
+  width: 12vw;
+  text-align: center;
+}
+
+div.dragtab > strong > p {
+  width: 12vw;
+  border-top-left-radius: 0.3rem;
+  margin: 0;
+}
+
 span#tagtab {
   width: 12vw;
   display: flex;
@@ -225,17 +237,20 @@ span#tagtab {
   position: absolute;
   padding-top: 0.5rem;
   border-top: 0.1rem solid grey;
+  margin-top: 0;
 }
 
 span#tagtab > a#tag {
   margin: 0.1rem;
   border: 0.1rem solid grey;
+  transition: all 0.1s ease;
 }
 
 span#tagtab > a#tag.active {
   background-color: var(--plain-background-color);
   border: 0.1rem solid grey;
   color: var(--text-color);
+  transition: all 0.1s ease;
 }
 
 span#toptagtab {
@@ -275,7 +290,7 @@ img {
   div.content {
     width: 90vw;
   }
-  span#tagtab {
+  div.dragtab {
     display: none;
   }
   span#toptagtab {
