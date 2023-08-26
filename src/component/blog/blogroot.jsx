@@ -15,7 +15,7 @@ const BlogRoot = () => {
 
     const fetchdata = () => {
     // fetch("https://raw.githubusercontent.com/xup60521/xup60521.github.io/main/public/db.json").then((res)=>res.json()).then((res)=>{setblogs(res)});
-    fetch("https://raw.githubusercontent.com/xup60521/xup60521.github.io/main/public/db.json").then((res)=>res.json()).then((res)=>{
+    fetch("db.json").then((res)=>res.json()).then((res)=>{
         setblogs(res);
         res.posts.map((d)=>{
         tags = new Set([...tags, ...(d.tag)])
