@@ -6,6 +6,17 @@
   --nav-background-color: black;
 }
 
+blockquote {
+  background-color: #00000015;
+  border-left: 0.3rem solid #7d5bed;
+  padding: 0.1rem;
+  padding-inline-start: 0.5rem;
+}
+
+blockquote > * {
+  margin: 0.5rem 0.1rem;
+}
+
 pre#code {
   background-color: #00000015;
   padding: 1.5rem;
