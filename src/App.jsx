@@ -1,5 +1,5 @@
 import './App.css'
-import { HashRouter, NavLink, Route, Routes } from "react-router-dom"
+import {HashRouter, BrowserRouter, NavLink, Route, Routes } from "react-router-dom"
 import {AiOutlineMenu, AiOutlineClose, AiOutlineSearch} from "react-icons/ai"
 import { useEffect, useReducer, useRef, useState } from "react"
 import Home from "./component/home"
