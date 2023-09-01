@@ -3,11 +3,11 @@
     {
       "title": "Web Calendar",
       "base64url": "aHR0cHM6Ly94dXA2MDUyMS5naXRodWIuaW8vd2ViLWNhbGVuZGFyLw",
-      "uuid": "400ae807-d6fc-4a4a-8c02-bb20d57e4eb2",
+      "uuid": "400ae807-d6fc-4a4a-8c02-bb20d57e4eb2"
     }, {
       "title": "Sudoku By Zup",
       "base64url": "aHR0cHM6Ly94dXA2MDUyMS5naXRodWIuaW8vc3Vkb2t1Lw",
-      "uuid": "307396d2-976c-4637-8c85-8c7747370fac",
+      "uuid": "307396d2-976c-4637-8c85-8c7747370fac"
     }
   ]
 }
