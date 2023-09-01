@@ -1,9 +1,36 @@
+import { Base64 } from "js-base64";
+import { useEffect, useState } from "react";
+
 const MyWork = () => {
+
+    const [works, setworks] = useState({"posts": []})
+    
+    const fetchdata = () => {
+        // fetch("https://raw.githubusercontent.com/xup60521/xup60521.github.io/main/public/db.json").then((res)=>res.json()).then((res)=>{setblogs(res)});
+        fetch("https://raw.githubusercontent.com/xup60521/xup60521.github.io/repo/myworks.json").then((res)=>res.json()).then((res)=>{
+            setworks(res);
+            
+        });}
+
+    useEffect(()=>{
+        fetchdata()
+       
+    }, [])
+
     return (
     <div className="mywork content">
-        <div className="item">
-            <a href="https://xup60521.github.io/web-calendar" target="_blank" rel="noreferrer noopener">Web Calendar</a>
-            <a href="https://xup60521.github.io/time-management-tool" target="_blank" rel="noreferrer noopener">Time Management Tool</a>
+        <h2>My Works</h2>
+        <div className="displayworks">
+            {works.posts.map((d, i)=>{
+                return (
+                    <div className="item">
+                        <p><a href={Base64.decode(d.base64url)} target="_blank">{d.title}</a></p>
+                        <iframe src={Base64.decode(d.base64url)} frameborder="0">
+                            <p>{d.title}</p>
+                        </iframe>
+                    </div>
+                )
+            })}
         </div>
     </div>
     )
