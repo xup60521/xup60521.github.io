@@ -3,34 +3,28 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+歡迎來到「早餐店紅茶」部落格，你可以叫我Zup。
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
+部落格會取這個名子是因為，我幾乎每天早餐都會配一杯有決明子的古早味紅茶，不過因為它有幫助排泄的副作用，所以早上我很常蹲廁所，在馬桶上的期間瀏覽一些文章。「早餐店紅茶」的定位在於一些篇幅不長、有趣的知識點，以及我的一些小記與對事情的想法，還請大家多多指教。
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+## Tech Stack
+
+部落格的基底是[Astro](https://astro.build)，而網頁的模板是由[Sat Naing](https://satnaing.dev/) 所製作的[AstroPaper](https://github.com/satnaing/astro-paper) ，萬分感謝有這麼好看的模板（去幫這個GitHub Repo按星星！！！）
+
+目前還在學習網頁技術中，希望未來可以設計出自己的部落格。
 
 <div>
   <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
 </div>
 
-## Tech Stack
+## About Zup
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+[Zup](/)沒有特別的含意，是我上網時常用的幾個名子之一。
 
-## Features
+目前是個物理系大學生，就如同大部分的人一樣，我並沒有特別喜歡我讀的科系，成績也在中等而以。和其他人不同的是，我不打算就此躺平，因此朝向不同的方向努力中。
 
-Here are certain features of this site.
+不相信星座 / 血型 / MBTI，認為這些東西只是聊天的話題，不該因為是XX人而界定自己的空間。認為價值觀非常重要，因為這是決定做什麼事情的原則，沒有原則會不知道為了什麼目標在前進。曾經非常社恐，但有些經驗後發現沒人在意你心中的小劇場，不過現在還是偏孤僻。
 
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
+對社會科學、政治哲學有些興趣，也因此對於一些事物的看法與同學格格不入。
 
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+2024沒有新年願望，只有級短期、中期規劃。夢想是能創造對社會的價值時也能夠養活自己。
