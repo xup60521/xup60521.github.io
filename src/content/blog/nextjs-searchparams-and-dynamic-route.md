@@ -88,7 +88,7 @@ export default function Page() {
 
 `localhost:3000/whateverYouWant`
 
-![server component and client component dynamic route test](/src/assets/blogImage/nextjs-app-router-searchparams-and-dynamic-route/dynamic-route.png)
+![server component and client component dynamic route test](https://github.com/xup60521/xup60521.github.io/blob/main/src/assets/blogImage/nextjs-app-router-searchparams-and-dynamic-route/dynamic-route.png?raw=true)
 
 ### API Route
 
@@ -109,7 +109,7 @@ export async function GET(
 
 用Postman測試一下
 
-![Postman test API Route](/src/assets/blogImage/nextjs-app-router-searchparams-and-dynamic-route/dynamic-route-api.png)
+![Postman test API Route](https://github.com/xup60521/xup60521.github.io/blob/main/src/assets/blogImage/nextjs-app-router-searchparams-and-dynamic-route/dynamic-route-api.png?raw=true)
 
 ## URL Search Parameters
 
@@ -190,7 +190,7 @@ export default function Page() {
 
 `localhost:3000/test?id=test_search_params`
 
-![searchparams outcome](/src/assets/blogImage/nextjs-app-router-searchparams-and-dynamic-route/searchparams.png)
+![searchparams outcome](https://github.com/xup60521/xup60521.github.io/blob/main/src/assets/blogImage/nextjs-app-router-searchparams-and-dynamic-route/searchparams.png?raw=true)
 
 ### API Route
 
@@ -208,7 +208,7 @@ export async function GET(req: NextRequest) {
 
 用Postman測試也會得到
 
-![postman test api route (search parameters)](/src/assets/blogImage/nextjs-app-router-searchparams-and-dynamic-route/searchparams-api.png)
+![postman test api route (search parameters)](https://github.com/xup60521/xup60521.github.io/blob/main/src/assets/blogImage/nextjs-app-router-searchparams-and-dynamic-route/searchparams-api.png?raw=true)
 
 ## 總結
 
