@@ -147,7 +147,7 @@ load_dotenv()
 MONGODB_URI = os.getenv("MONGODB_URI")
 ```
 
-這樣子，就算MongoDB connection string存在完全不同的檔案裡（`.env`），主程式也可以存取了。
+這樣子，就算MongoDB connection string存在完全不同的檔案裡（[.env](#環境變數env)），主程式也可以存取了。
 
 接下來要來連接資料庫，方法很簡單。
 
@@ -211,13 +211,13 @@ async def deletePost(id: str):
 
 因為DELETE方法不是原生的http method，雖然這樣不太好，但這裡還是使用GET來觸發刪除資料。
 
-另外，在取得資料那邊將ObjectId轉為string，不過這邊就要把型別轉回來了，不然MongoDB會無法識別。
+另外，這裡的`id`型別為string，需要轉換為ObjectId，不然MongoDB會無法識別。
 
 ---
 
 #### 取得資料
 
-正當你以為使用collection.find()就會回傳所有的資料時，這才發現還是太天真了！
+正當你以為使用collection.find()就會回傳所有的資料時，才發現事情沒有這麼簡單。
 
 來看一下[w3school](https://www.w3schools.com/python/python_mongodb_find.asp)怎麼寫：
 
