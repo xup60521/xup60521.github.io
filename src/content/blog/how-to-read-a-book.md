@@ -21,7 +21,9 @@ description: "新手向，如何看一本書"
 
 4. 內化成自己的知識
 
-![reading image](https://raw.githubusercontent.com/xup60521/xup60521.github.io/asset/how-to-read-a-book/a-person-reading.png)
+<div>
+  <img src="https://raw.githubusercontent.com/xup60521/xup60521.github.io/asset/how-to-read-a-book/a-person-reading.png" alt="a person is reading" class="border-none" />
+</div>
 
 ## Table of contents
 
