@@ -138,7 +138,7 @@ fetch(
 );
 ```
 
-在`/City/Taipei`的後面加了`?&$select=RouteName&$format=JSON`。?代表後面開始是SearchParams。&代表連接不同的變數，放在最前面沒有用途。而$select、$format則是變數名稱。
+在`/City/Taipei`的後面加了`?&$select=RouteName&$format=JSON`。?代表後面開始是SearchParams。&代表連接不同的變數，放在最前面沒有特別意義。而$select、$format則是變數名稱。
 
 所以`$select=RouteName,SubRoutes`代表選擇RouteName與SubRoutes這兩個欄位。而`$format=JSON`代表回傳的資料格式為JSON。
 
