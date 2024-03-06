@@ -8,6 +8,7 @@ draft: false
 tags:
   - next.js
   - web-tech
+  - reactjs
 description: "Next.js App Router 取得dynamic route, searchParams參數"
 ---
 

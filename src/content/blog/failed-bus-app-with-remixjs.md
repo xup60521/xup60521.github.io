@@ -8,7 +8,7 @@ draft: true
 tags:
   - web-tech
   - remixjs
-
+  - reactjs
 description: "平常都用Nextjs的我，心血來潮來用Remix來做等公車的網頁"
 ---
 

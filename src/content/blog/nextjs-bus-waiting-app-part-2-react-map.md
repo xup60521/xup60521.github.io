@@ -10,10 +10,11 @@ tags:
   - nextjs
   - transportation
   - leaflet
+  - reactjs
 description: "上一篇串了TDX API，現在要來把地圖做進網頁去"
 ---
 
-上一篇串好了TDX API，現在來把我認為最重要的地圖做網頁中。
+上一篇串好了TDX API，現在來把我認為最重要的地圖做進去網頁中。
 
 ## Table of contents
 
@@ -189,6 +190,7 @@ export function Map() {
 ```tsx
 "use client";
 import { Marker, Tooltip, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
 import type Item from "~/type/item";
 
 export default function DisplayMarker({ item }: { item: Item }) {
