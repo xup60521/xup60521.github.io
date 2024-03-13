@@ -270,6 +270,118 @@ async function handleConvert() {
 
 按一下download按鈕應該就能跳去新的頁面，either用瀏覽器撥放or開始下載。
 
+`code`
+
+```tsx
+import { useEffect, useRef, useState } from "react";
+import { FFmpeg } from "@ffmpeg/ffmpeg";
+import "./App.css";
+import { fetchFile, toBlobURL } from "@ffmpeg/util";
+
+function App() {
+  const ffmpegRef = useRef(new FFmpeg());
+  const messageRef = useRef<HTMLParagraphElement | null>(null);
+  const [isFFmpegLoading, setIsFFmpegLoading] = useState(true);
+  const [inputVid, setInputVid] = useState<File | null>(null);
+  const [outputVid, setOutputVid] = useState<string | null>(null);
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    if (file) {
+      setInputVid(file);
+    }
+  };
+
+  async function handleConvert() {
+    if (!inputVid) {
+      return;
+    }
+    const ffmpeg = ffmpegRef.current;
+    await ffmpeg.writeFile("input.mp4", await fetchFile(inputVid));
+    await ffmpeg.exec(["-i", "input.mp4", "output.mp4"]);
+    const fileData = await ffmpeg.readFile("output.mp4");
+    const data = new Uint8Array(fileData as ArrayBuffer);
+    setOutputVid(
+      URL.createObjectURL(new Blob([data.buffer], { type: "video/mp4" }))
+    );
+  }
+
+  useEffect(() => {
+    const loader = async () => {
+      const baseURL = "https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm";
+      const ffmpeg = ffmpegRef.current;
+      ffmpeg.on("log", ({ message }) => {
+        if (messageRef.current) messageRef.current.innerHTML = message;
+      });
+      await ffmpeg.load({
+        coreURL: await toBlobURL(
+          `${baseURL}/ffmpeg-core.js`,
+          "text/javascript"
+        ),
+        wasmURL: await toBlobURL(
+          `${baseURL}/ffmpeg-core.wasm`,
+          "application/wasm"
+        ),
+      });
+      setIsFFmpegLoading(false);
+    };
+    loader();
+  }, []);
+
+  if (isFFmpegLoading) {
+    return "loading";
+  }
+
+  return (
+    <>
+      <main className="grid h-screen w-screen grid-cols-2 gap-2 bg-slate-700 p-2 text-white">
+        <div className="flex flex-col gap-2">
+          <h1 className="border-b-2 border-white py-2 text-center font-mono text-3xl">
+            Input
+          </h1>
+          <input type="file" accept="video/*" onChange={handleInput} />
+          {inputVid && (
+            <>
+              <video controls>
+                <source src={URL.createObjectURL(inputVid)} />
+              </video>
+              <button
+                onClick={handleConvert}
+                className="rounded-md border-2 border-white px-3 py-2 text-white transition-all hover:bg-white hover:text-black"
+              >
+                Convert Video
+              </button>
+              <p ref={messageRef}></p>
+            </>
+          )}
+        </div>
+        <div className="flex flex-col gap-2">
+          <h1 className="border-b-2 border-white py-2 text-center font-mono text-3xl">
+            Output
+          </h1>
+          {outputVid && (
+            <>
+              <video controls>
+                <source src={outputVid} />
+              </video>
+              <a
+                href={outputVid}
+                className="rounded-md border-2 border-white px-3 py-2 text-center text-white transition-all hover:bg-white hover:text-slate-700"
+                target="_blank"
+              >
+                Download
+              </a>
+            </>
+          )}
+        </div>
+      </main>
+    </>
+  );
+}
+
+export default App;
+```
+
 ## 結尾
 
 沒想到用ffmpeg.wasm也花了我一番力氣，因為官網提供的範本有些錯誤，原本在load()裡面還有包含workerURL，但現在去看檔案已經消失，所以我把這行給刪掉了。從來也沒想過官方的example會有問題。
