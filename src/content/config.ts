@@ -21,7 +21,7 @@ const blog = defineCollection({
   type: 'content',
   schema: ({image}) => z.object({
     title: z.string(),
-    cover: image().optional(),
+    cover: image().optional().or(z.string()),
     date: z.coerce.date(),
     tags: z.array(reference('tags')).default(['default']),
     lastmod: z.coerce.date().optional(),
