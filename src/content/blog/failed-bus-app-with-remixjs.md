@@ -2,6 +2,7 @@
 author: Zup
 date: 2024-03-03
 title: 【悲劇】Remix新手嘗試做一個等公車網頁
+cover: "@/assets/remix-bus.webp"
 tags:
   - web-tech
   - reactjs

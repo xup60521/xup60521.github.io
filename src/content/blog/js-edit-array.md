@@ -2,6 +2,7 @@
 author: Zup
 date: 2024-03-17T16:37:23.767Z
 title: JS修改Array裡的值
+cover: "@/assets/js-array.png"
 tags:
   - reactjs
   - web-tech

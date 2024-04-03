@@ -2,6 +2,7 @@
 author: Zup
 date: 2024-02-28
 title: 看一本書的方法
+cover: "@/assets/a-person-is-reading.jpg"
 tags:
   - learning
 summary: "新手向，如何看一本書"

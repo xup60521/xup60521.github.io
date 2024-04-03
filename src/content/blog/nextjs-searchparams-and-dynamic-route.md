@@ -2,7 +2,7 @@
 author: Zup
 date: 2024-02-06T08:28:43.881Z
 title: Next.js App Router 取得 dynamic route, searchParams 參數
-slug: nextjs-app-router-searchparams-and-dynamic-route
+cover: "@/assets/nextjs-app-router-searchparams-and-dynamic-route.webp"
 featured: false
 draft: false
 tags:

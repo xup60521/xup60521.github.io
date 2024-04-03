@@ -2,6 +2,7 @@
 author: Zup
 date: 2024-03-08
 title: Express + ESModule + Vercel：Quick Start
+cover: '@/assets/express-vercel.webp'
 tags:
   - web-tech
 summary: "把express部署到vercel，還順便用了ESModule"

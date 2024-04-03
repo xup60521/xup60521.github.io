@@ -2,6 +2,7 @@
 author: Zup
 date: 2024-02-11T07:55:41.131Z
 title: 使用Vanilla JS + FastAPI 製作 To-do List
+cover: "@/assets/js-fastapi.webp"
 tags:  
   - web-tech
 summary: "回歸最原始的HTML+JS+CSS"
