@@ -5,7 +5,7 @@ title: JS修改Array裡的值
 cover: "@/assets/js-array.png"
 tags:
   - reactjs
-  - web-tech
+  - js
 summary: "修改一個物件Array，可能是比較好的方法"
 ---
 
