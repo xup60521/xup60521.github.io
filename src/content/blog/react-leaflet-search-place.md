@@ -181,3 +181,5 @@ function FlyToPlace({ place }: { place: Position}) {
     return null;
 }
 ```
+
+[demo website](https://xup60521.github.io/bun-vite-react-leaflet-map-search-demo)
