@@ -57,7 +57,7 @@ export default function App() {
 }
 ```
 
-## 安裝套件
+## 基本地圖設置
 
 核心的地圖套件有 2+1
 
@@ -89,6 +89,11 @@ import "leaflet/dist/leaflet.css";
 ```
 
 ## 搜尋位置
+
+先來安裝套件
+```bash
+bun add leaflet-control-geocode
+```
 
 `leaflet-control-geocode` 在搜尋時，並不是非同步事件。但實際上搜尋一定會花些時間，因此我們要先手動加入 Promise，讓之後的使用更方便一點
 
