@@ -2,6 +2,7 @@
 author: Zup
 date: 2024-03-14T07:32:57.336Z
 title: Vite Deploy to Github Pages
+cover: "@/assets/vite-react.png"
 tags:
   - web-tech
 summary: 利用gh-pages套件，將vite app網頁託管到Github Pages
@@ -21,10 +22,6 @@ pnpm create vite@latest
 pnpm i
 pnpm run dev
 ```
-
-選擇react之後會有的畫面
-
-![create vite](https://github.com/xup60521/xup60521.github.io/blob/asset/vite-deploy-github-pages/vite.png?raw=true)
 
 ## Deploy
 

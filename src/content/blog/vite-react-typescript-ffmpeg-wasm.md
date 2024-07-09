@@ -3,6 +3,7 @@ author: Zup
 date: 2024-03-13T13:07:06.155Z
 title: Vite + React + TS + FFmpeg WASM
 slug: vite-react-typescript-ffmpeg-wasm
+cover: "@/assets/ffmpeg-wasm.png"
 featured: false
 draft: false
 tags:
@@ -11,11 +12,6 @@ tags:
   - wasm
 summary: 使用ffmpeg.wasm與React製作一個轉檔程式
 ---
-
-# Vite + React + TS + TailwindCSS + FFmpeg WASM
-
-![FFmpeg + WASM](https://github.com/xup60521/xup60521.github.io/blob/asset/vite-react-typescript-ffmpeg-wasm/ffmpeg-wasm.png?raw=true)
-
 
 ## 初始化專案
 
